@@ -39,7 +39,7 @@ tiny_x.x.x.x.netfx.zip  .NET Framework 版本
 
 在 Linux 服务器上，可以安装 .net core 后使用 netcore 版本运行，如果装了 mono 可以使用 netfx 版本，如果安装了 jexus ，可以使用 iis 版本。
 
-在 Git Pages 等只能支持静态页面的服务或者主机上，可以使用 -g 参数生成静态页面。
+在 Git Pages 等只能支持静态页面的服务或者主机上，可以使用 -g 参数生成静态页面，这种方式类似于 Hexo 和 Jekyll。
 
 ## 如何使用
 
