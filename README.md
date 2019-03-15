@@ -49,7 +49,8 @@ Tinyblog 使用端口为 6600,启动程序后，在浏览器输入 http://localh
 
 ```
 <?xml version="1.0"?>
-<TinyConfiguration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<TinyConfiguration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <Port>6600</Port>
   <SiteName>站点标题</SiteName>
   <IsSitePublic>true</IsSitePublic><!--是否公开访问-->
