@@ -1,0 +1,9 @@
+﻿    <nav class="pagination" role="pagination">
+        {% if PrevPage != null %}
+        <a class="newer-posts" href="/page/{{PrevPage}}"><i class="fa fa-chevron-circle-left" aria-hidden="true"></i>   Newer</a>
+        {% endif %}
+        <span class="page-number">Page {{CurrentPage}} of {{TotalPage}}</span>
+        {% if NextPage != null %}
+        <a class="older-posts" href="/page/{{NextPage}}">Older <i class="fa fa-chevron-circle-right" aria-  hidden="true"></i></a>
+        {% endif %}
+    </nav>

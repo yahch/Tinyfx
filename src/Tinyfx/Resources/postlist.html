@@ -1,0 +1,52 @@
+﻿<h1 class="h2">文章列表</h1>
+<br />
+{% if Error != null %}
+<script type="text/javascript">
+    toastr["error"]("{{Error}}", "错误")
+</script>
+{% endif %}
+{% if Success != null %}
+<script type="text/javascript">
+    toastr["success"]("{{Success}}", "成功")
+</script>
+{% endif %}
+<table class="table">
+    <thead class="thead-dark">
+        <tr>
+            <!--<th scope="col">文章ID</th>-->
+            <th scope="col">标题</th>
+            <th scope="col">发布时间</th>
+            <th scope="col">可见性</th>
+            <th scope="col">操作</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% if PageData != null %}
+        {% for item in PageData%}
+        <tr>
+            <!--<th scope="row">{{item[0]}}</th>-->
+            <td><a target="_blank" href="/post/{{item[0]}}">{{item[1]}}</a></td>
+            <td>{{item[2]}}</td>
+            <td>{% if item[3] == 'True' %} <a href="/admin/post-list?action=visible&pid={{item[0]}}&page={{CurrentPage}}"><i title="公开可见" class="fa fa-eye"></i></a> {% else %} <a href="/admin/post-list?action=visible&pid={{item[0]}}&page={{CurrentPage}}"><i title="隐藏" class="fa fa-eye-slash"></i></a> {% endif %}</td>
+            <td>
+                <a onclick="return confirm('确认删除？');" href="?action=delete&pid={{item[0]}}&page={{CurrentPage}}"><button type="button" class="btn btn-light">删除</button></a>
+                <a href="/admin/edit-post?pid={{item[0]}}"><button type="button" class="btn btn-light">修改</button></a>
+            </td>
+        </tr>
+        {% endfor %}
+        {% endif %}
+    </tbody>
+</table>
+{% if NaviData.size > 0 %}
+<nav aria-label="Page navigation example">
+    <ul class="pagination">
+        {% for item in NaviData %}
+        {% if item[0] == CurrentPage %}
+        <li class="page-item active"><a class="page-link" href="{{item[2]}}">{{item[1]}} <span class="sr-only">(current)</span></a></li>
+        {% else %}
+        <li class="page-item"><a class="page-link" href="{{item[2]}}">{{item[1]}}</a></li>
+        {% endif %}
+        {% endfor %}
+    </ul>
+</nav>
+{% endif %}

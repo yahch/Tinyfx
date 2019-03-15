@@ -1,0 +1,32 @@
+﻿<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>{{BrowserTitle}}</title>
+    <meta name="description" content="{{Description}}" />
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="MobileOptimized" content="320" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+    <link rel="stylesheet" type="text/css" href="/styles/normalize.css?v=281b1bfc21" />
+    <link rel="stylesheet" type="text/css" href="/styles/screen.css?v=281b1bfc21" />
+    <meta name="generator" content="Microsoft .NET" />
+</head>
+<body class="home-template">
+    <div style="z-index:100;">
+        <header id="site-head">
+            <a id="blog-logo" href="/"><div class="bloglogo" style="background: url(/resources/ images.logo.png)"></div></a>
+            <h1 class="blog-title"><a href="/">{{Configuration.SiteName}}</a></h1>
+            {% if Configuration.NavigationLinks.size > 0 %}
+            <nav class="head-nav">
+                <ul class="head-nav__list">
+                    {% for item in Configuration.NavigationLinks %}
+                    <li class="head-nav__item"><a href="{{item[0]}}" class="head-nav__link">{{item[1]}}</   a></li>
+                    {% endfor %}
+                </ul>
+            </nav>
+            {% else %}
+            <div style="border-bottom:1px solid #ecf0f1;height:1px;"></div>
+            {% endif %}
+        </header>
+        <main class="content" role="main">

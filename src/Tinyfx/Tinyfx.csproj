@@ -1,0 +1,110 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <Version>2.19.3.14</Version>
+    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+    <Description></Description>
+    <Copyright></Copyright>
+    <Product />
+    <Company />
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Resources\admin.html" />
+    <None Remove="Resources\bottom.html" />
+    <None Remove="Resources\changepassword.html" />
+    <None Remove="Resources\createpost.html" />
+    <None Remove="Resources\css\bootstrap-grid.min.css" />
+    <None Remove="Resources\css\bootstrap-reboot.min.css" />
+    <None Remove="Resources\css\bootstrap.min.css" />
+    <None Remove="Resources\css\font-awesome.min.css" />
+    <None Remove="Resources\css\login.css" />
+    <None Remove="Resources\css\main.css" />
+    <None Remove="Resources\css\normalize.css" />
+    <None Remove="Resources\css\screen.css" />
+    <None Remove="Resources\css\simplemde.min.css" />
+    <None Remove="Resources\css\toastr.min.css" />
+    <None Remove="Resources\customerror.html" />
+    <None Remove="Resources\dashboard.html" />
+    <None Remove="Resources\favicon.ico" />
+    <None Remove="Resources\fonts\fontawesome-webfont.eot" />
+    <None Remove="Resources\fonts\fontawesome-webfont.svg" />
+    <None Remove="Resources\fonts\fontawesome-webfont.ttf" />
+    <None Remove="Resources\fonts\fontawesome-webfont.woff" />
+    <None Remove="Resources\fonts\fontawesome-webfont.woff2" />
+    <None Remove="Resources\fonts\FontAwesome.otf" />
+    <None Remove="Resources\fonts\icons.svg" />
+    <None Remove="Resources\fonts\icons.ttf" />
+    <None Remove="Resources\fonts\icons.woff" />
+    <None Remove="Resources\images\logo.png" />
+    <None Remove="Resources\login.html" />
+    <None Remove="Resources\page.html" />
+    <None Remove="Resources\pager.html" />
+    <None Remove="Resources\post.html" />
+    <None Remove="Resources\postlist.html" />
+    <None Remove="Resources\scripts\bootstrap.bundle.min.js" />
+    <None Remove="Resources\scripts\bootstrap.min.js" />
+    <None Remove="Resources\scripts\jquery-3.2.1.slim.min.js" />
+    <None Remove="Resources\scripts\jquery-3.3.1.min.js" />
+    <None Remove="Resources\scripts\jquery.form.min.js" />
+    <None Remove="Resources\scripts\particles.min.js" />
+    <None Remove="Resources\scripts\popper.min.js" />
+    <None Remove="Resources\scripts\simplemde.min.js" />
+    <None Remove="Resources\scripts\toastr.min.js" />
+    <None Remove="Resources\top.html" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\admin.html" />
+    <EmbeddedResource Include="Resources\bottom.html" />
+    <EmbeddedResource Include="Resources\changepassword.html" />
+    <EmbeddedResource Include="Resources\createpost.html" />
+    <EmbeddedResource Include="Resources\css\bootstrap-grid.min.css" />
+    <EmbeddedResource Include="Resources\css\bootstrap-reboot.min.css" />
+    <EmbeddedResource Include="Resources\css\bootstrap.min.css" />
+    <EmbeddedResource Include="Resources\css\font-awesome.min.css" />
+    <EmbeddedResource Include="Resources\css\login.css" />
+    <EmbeddedResource Include="Resources\css\main.css" />
+    <EmbeddedResource Include="Resources\css\normalize.css" />
+    <EmbeddedResource Include="Resources\css\screen.css" />
+    <EmbeddedResource Include="Resources\css\simplemde.min.css" />
+    <EmbeddedResource Include="Resources\css\toastr.min.css" />
+    <EmbeddedResource Include="Resources\customerror.html" />
+    <EmbeddedResource Include="Resources\dashboard.html" />
+    <EmbeddedResource Include="Resources\favicon.ico" />
+    <EmbeddedResource Include="Resources\fonts\fontawesome-webfont.eot" />
+    <EmbeddedResource Include="Resources\fonts\fontawesome-webfont.svg" />
+    <EmbeddedResource Include="Resources\fonts\fontawesome-webfont.ttf" />
+    <EmbeddedResource Include="Resources\fonts\fontawesome-webfont.woff" />
+    <EmbeddedResource Include="Resources\fonts\fontawesome-webfont.woff2" />
+    <EmbeddedResource Include="Resources\fonts\FontAwesome.otf" />
+    <EmbeddedResource Include="Resources\fonts\icons.svg" />
+    <EmbeddedResource Include="Resources\fonts\icons.ttf" />
+    <EmbeddedResource Include="Resources\fonts\icons.woff" />
+    <EmbeddedResource Include="Resources\images\logo.png" />
+    <EmbeddedResource Include="Resources\login.html" />
+    <EmbeddedResource Include="Resources\page.html" />
+    <EmbeddedResource Include="Resources\pager.html" />
+    <EmbeddedResource Include="Resources\post.html" />
+    <EmbeddedResource Include="Resources\postlist.html" />
+    <EmbeddedResource Include="Resources\scripts\bootstrap.bundle.min.js" />
+    <EmbeddedResource Include="Resources\scripts\bootstrap.min.js" />
+    <EmbeddedResource Include="Resources\scripts\jquery-3.2.1.slim.min.js" />
+    <EmbeddedResource Include="Resources\scripts\jquery-3.3.1.min.js" />
+    <EmbeddedResource Include="Resources\scripts\jquery.form.min.js" />
+    <EmbeddedResource Include="Resources\scripts\particles.min.js" />
+    <EmbeddedResource Include="Resources\scripts\popper.min.js" />
+    <EmbeddedResource Include="Resources\scripts\simplemde.min.js" />
+    <EmbeddedResource Include="Resources\scripts\toastr.min.js" />
+    <EmbeddedResource Include="Resources\top.html" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="CommonMark.NET" Version="0.15.1" />
+    <PackageReference Include="DotLiquid" Version="2.0.298" />
+    <PackageReference Include="Nancy" Version="2.0.0-clinteastwood" />
+    <PackageReference Include="Nancy.Authentication.Forms" Version="2.0.0-clinteastwood" />
+  </ItemGroup>
+
+</Project>

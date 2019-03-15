@@ -1,0 +1,158 @@
+﻿<link href="/styles/simplemde.min.css" rel="stylesheet">
+<script src="/scripts/simplemde.min.js"></script>
+<script src="/scripts/jquery.form.min.js"></script>
+<h1 class="h2">创建文章</h1>
+<br />
+{% if Error != null %}
+<script type="text/javascript">
+    toastr["error"]("{{Error}}", "错误")
+</script>
+{% endif %}
+<form method="post" enctype="application/x-www-form-urlencoded">
+    <div class="form-group">
+        <label for="postTitle">文章标题</label>
+        <input type="text" name="title" {% if PageData != null %}value="{{PageData[1]}}" {% endif %} class="form-control" id="postTitle" placeholder="输入标题">
+    </div>
+    <div class="form-group">
+        <label for="postContent">正文</label>
+        <textarea name="content" class="form-control" id="postContent" placeholder="输入文章正文">{% if PageData != null %}{{PageData[2]}}{% endif %}</textarea>
+    </div>
+    <div class="form-check">
+        {% if PageData != null %}
+        {% if PageData[3] == 'True' %}
+        <input type="checkbox" checked="checked" name="isPublic" class="form-check-input" id="isPublic">
+        {% else %}
+        <input type="checkbox" name="isPublic" class="form-check-input" id="isPublic">
+        {% endif %}
+        {% else %}
+        <input type="checkbox" checked="checked" name="isPublic" class="form-check-input" id="isPublic">
+        {% endif %}
+        <label class="form-check-label" for="isPublic">公开</label>
+    </div>
+    <div class="form-group" style="margin-top:20px;">
+        <button type="submit" class="btn btn-primary">发布</button>
+    </div>
+</form>
+<script>
+
+    var simplemde = new SimpleMDE({
+        element: document.getElementById("postContent"),
+        autofocus: true,
+        spellChecker: false,
+        autoDownloadFontAwesome: false,
+        autosave: {
+            enabled: false,
+            uniqueId: "md-draft",
+            delay: 10000,
+        },
+        status: false,
+        toolbar: [{
+            name: "bold",
+            action: SimpleMDE.toggleBold,
+            className: "fa fa-bold",
+            title: "粗体",
+        },
+        {
+            name: "italic",
+            action: SimpleMDE.toggleItalic,
+            className: "fa fa-italic",
+            title: "斜体",
+        },
+        {
+            name: "heading",
+            action: SimpleMDE.toggleHeadingSmaller,
+            className: "fa fa-header",
+            title: "标题",
+        },
+        {
+            name: "code",
+            action: SimpleMDE.toggleCodeBlock,
+            className: "fa fa-code",
+            title: "代码",
+        },
+        {
+            name: "strikethrough",
+            action: SimpleMDE.toggleStrikethrough,
+            className: "fa fa-strikethrough",
+            title: "删除线",
+        },
+        {
+            name: "quote",
+            action: SimpleMDE.toggleBlockquote,
+            className: "fa fa-quote-left",
+            title: "引用",
+        },
+        {
+            name: "unordered-list",
+            action: SimpleMDE.toggleUnorderedList,
+            className: "fa fa-list-ul",
+            title: "无序列表",
+        },
+        {
+            name: "ordered-list",
+            action: SimpleMDE.toggleOrderedList,
+            className: "fa fa-list-ol",
+            title: "有序列表",
+        },
+        {
+            name: "link",
+            action: SimpleMDE.drawLink,
+            className: "fa fa-link",
+            title: "超链接",
+        },
+        {
+            name: "horizontal-rule",
+            action: SimpleMDE.drawHorizontalRule,
+            className: "fa fa-minus",
+            title: "水平线",
+        },
+        {
+            name: "image",
+            action: SimpleMDE.drawImage,
+            className: "fa fa-image",
+            title: "图片",
+        },
+        {
+            name: "upload_picture",
+            action: function customFunction(editor) {
+                var sid = 'hTyx6Tm9Ikl06Ap';
+                var forms = $('#form_' + sid).length;
+                if (forms > 0) {
+                    $('#form_' + sid).remove();
+                }
+                var fhtml = '<form action="/admin/upload" method="post" enctype="multipart/form-data" style="display:none;" id="form_' + sid + '">';
+                fhtml += '<input id="input_' + sid + '" type="file" name="file">';
+                fhtml += '<input type="submit" value="upload" />';
+                fhtml += '</form>';
+                $('body').append(fhtml);
+                $('#input_' + sid).change(function () {
+                    if ($(this).val().length < 3) return;
+                    toastr["warning"]("正在上传文件...", "提示")
+                    $('#form_' + sid).ajaxSubmit({
+                        success: function (rs) {
+                            if (rs.error == 0) {
+                                toastr["success"]("文件上传完成", "成功")
+                                var url = rs.url;
+                                var snip = '[' + url + '](' + url + ')';
+                                if (url.endsWith('.jpg') || url.endsWith('.jpeg') || url.endsWith('.png') || url.endsWith('.gif')) {
+                                    snip = '![](' + url + ')';
+                                }
+                                pos = simplemde.codemirror.getCursor();
+                                simplemde.codemirror.setSelection(pos, pos);
+                                simplemde.codemirror.replaceSelection(snip);
+                            } else if (rs.error == 1) {
+                                toastr["error"]("上传文件失败", "失败")
+                            } else if (rs.error == 2) {
+                                toastr["error"]("没有要上传的文件", "失败")
+                            } else if (rs.error == 3) {
+                                toastr["error"]("不允许的图片类型", "失败")
+                            }
+                        }
+                    });
+                }).click();
+            },
+            className: "fa fa-cloud-upload",
+            title: "上传图片",
+        }]
+    });
+</script>
