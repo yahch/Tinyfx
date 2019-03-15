@@ -73,7 +73,8 @@ Tinyblog 使用端口为 6600,启动程序后，在浏览器输入 http://localh
   <Password>Buc6XoYh9TGyF68OTjoMBOMTlgvxF6OWAUApkG06jCY=</Password><!--用户密码（加密后）-->
   <AuthExpireSeconds>28800</AuthExpireSeconds><!--登录有效时间-->
   <Encryption>false</Encryption><!--是否对数据加密-->
-  <DataDirectory>D:\VS_PROJECTS\TinyFx\src\Tiny.ConsoleApplication\bin\Release\</DataDirectory><!--工作目录完整路径-->
+  <!--工作目录完整路径-->
+  <DataDirectory>D:\VS_PROJECTS\TinyFx\src\Tiny.ConsoleApplication\bin\Release\</DataDirectory>
   <LoginRetryTimeSpanSeconds>30</LoginRetryTimeSpanSeconds><!--最大重试登录失败间隔时间-->
 </TinyConfiguration>
 ```
